@@ -1,0 +1,123 @@
+var ages = [3, 9, 23, 64, 2, 8, 28, 93];     //Create an array called ages that contains the following values: 3, 9, 23, 64, 2, 8, 28, 93.
+
+console.log(ages[ages.length - 1] - ages[0]);  //Programmatically subtract the value of the first element in the array from the value in the last element of the array (do not use numbers to reference the last element, find it programmatically, ages[7] – ages[0] is not allowed). Print the result to the console.
+//Logged 90 to the console, this worked because I used .length to get to the end of the array and subtracted 1 to make sure I was in the proper index since arrays are zero-based 
+
+
+ages.splice(2, 0, 87);                          //Add a new age to your array and repeat the step above to ensure it is dynamic (works for arrays of different lengths).
+console.log(ages[ages.length - 1] - ages[0]);   //Added age 87 to index 2; repeated prior code to ensure it was dynamic and was successful (logged 90)
+
+
+let agesTotal = 0;                      //Use a loop to iterate through the array and calculate the average age. Print the result to the console.
+for ( i = 0; i < ages.length; i++){     
+    agesTotal += ages [i];              
+}console.log(agesTotal / ages.length);  //Printed the average to the console, should read 35.22222222222222
+
+/////////////////////////////////////////////
+
+let names = ['Sam',  'Tommy', 'Tim', 'Sally', 'Buck', 'Bob'];  //Create an array called names that contains the following values: ‘Sam’, ‘Tommy’, ‘Tim’, ‘Sally’, ‘Buck’, ‘Bob’.
+
+let totalLetters = 0;
+for( i = 0; i < names.length; i++){        //Use a loop to iterate through the array and calculate the average number of letters per name. Print the result to the console.
+   totalLetters += [i];                    //desired outcome is 3.8333
+}   
+console.log(totalLetters / names.length);    //ERROR outcome was 2057.5  --> unable to figure this out, will discuss in mentor session
+
+
+for( i = 0; i < names.length; i++){     //Use a loop to iterate through the array again and concatenate all the names together, separated by spaces, and print the result to the console.
+    console.log(names.join('  '));       //after this iterates through the length of the array, it takes all the elements by using .join followed by the ('  ') to create the spaces between them
+}
+
+
+console.log(names[0]); //How do you access the first element of any array? //This is because of zero based indexing, the first element is always at index 0
+console.log(names[names.length - 1]); // How do you access the last element of any array? //Doing array.length - 1 is necessary to get to the end of the array and subtract 1 to get to the proper index since it starts at 0
+
+let nameLengths = [];     // Create a new array called nameLengths. 
+
+for (i = 0; i < names.length; i++){                //Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.
+    nameLengths.push([names.length]);           
+}
+console.log(nameLengths);                       //ERROR desired outcome wrong, will discuss in mentor session
+
+
+let sumOfNameLengths = 0;
+for (i = 0; i < nameLengths.length; i++){       //Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. Print the result to the console.
+    sumOfNameLengths += [i];
+}console.log(i);                                //ERROR desired outcome wrong - logged 6; will discuss in mentor session
+
+////////////////////////////////////////////////////////////////////////////
+
+function wordRepeater(word, n){          //Write a function that takes two parameters, word and n, as arguments and returns the word concatenated to itself n number of times. (i.e. if I pass in ‘Hello’ and 3, I would expect the function to return ‘HelloHelloHello’).
+    let concateWord = '';
+    for( let i = 0; i < n; i++){
+        concateWord += word;
+    }
+    return concateWord;
+}
+
+let repeatedWord = wordRepeater('Apples' ,  7);     //example, logs Apples 7 times
+console.log(repeatedWord);
+
+
+
+function fullName(firstName, lastName){        //Write a function that takes two parameters, firstName and lastName, and returns a full name (the full name should be the first and the last name separated by a space).
+    console.log(firstName + ' ' + lastName);
+}
+
+fullName('Marius', 'Wiedmann');    //example that printed my name to the console
+
+
+
+function moreThan100(a, b, c, d){           //Write a function that takes an array of numbers and returns true if the sum of all the numbers in the array is greater than 100.
+    if ((a + b + c + d ) > 100) {
+        console.log(true);
+    }else{
+        console.log(false);
+    }
+}
+moreThan100(45, 50, 70, 22);                 //ERROR could not figure out how to apply this to an array - will bring up in mentor session
+
+
+function averageOfFourNumbers(a, b, c, d){  //Write a function that takes an array of numbers and returns the average of all the elements in the array.
+    let total = (a + b + c + d);
+    console.log(total / 4);
+}
+
+averageOfFourNumbers(3, 5, 32, 1);            //ERROR could not figure out how to apply this to an array - will bring up in mentor session
+
+function isAverageOfFirstArrayLarger([array1], [array2]){   //Write a function that takes two arrays of numbers and returns true if the average of the elements in the first array is greater than the average of the elements in the second array.
+    if(array1Total / array1.length > array2Total / array2.length){
+        return console.log(true);
+    }
+}                                                             //ERROR couldn't figure out how to compare averages, will discuss in mentor session 
+
+
+function willBuyDrink(isHotOutside, moneyInPocket){            //Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
+    if (isHotOutside = true && moneyInPocket > 10.50){
+        return console.log(true);
+    }
+}
+
+willBuyDrink(true, 12.35);                  //logged out true since isHotOutside is true and we had money thats greater than 10.50
+
+
+function didIRunAMarathon(x){                               //Create a function of your own that solves a problem. In comments, write what the function does and why you created it.
+    if (x < 3.1){                                           //I created this function as a way of putting in a number of miles the user ran and correlating it to the minimum amount of miles is required for each type of race
+        alert("Congratulations, you ran a Fun Run!");       //For example, if I input that I ran 15 miles, it will alert me saying that I ran enough to say I ran a half marathon
+    }else if (x >= 3.1 && x < 6.2){                         //If the user inputs anything equal to or above 26.2, they will be alerted saying they ran a marathon 
+        alert("Congratulations, you ran a 5K!");            //Anything below 26.2 is sub categorized into the different types of races use ELSE IF statements 
+    }else if (x >= 6.2 && x < 13.1){
+        alert("Congratulations, you ran a 10K!");
+    }else if (x >= 13.1 && x < 26.2){
+        alert("Congratulations, you ran a Half Marathon");
+    }else{
+        alert("Congratulations, You Ran a Marathon!");
+    }
+}
+didIRunAMarathon(30);  //should alert that I ran a marathon
+
+
+
+
+
+
